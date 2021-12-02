@@ -1,18 +1,19 @@
 @charset "utf-8";
 
-
 /* 1. Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 
-/* 2. Body e o Geral */
-
+/* 2. Body e Coisas Gerais */
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', 'sans-serif';
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Oswald', sans-serif;
     font-size: 14px;
     line-height: 23px;
     font-weight: 400;
@@ -23,7 +24,6 @@ body {
 div {
     display: block;
     position: relative;
-    box-sizing: border-box;
 }
 
 ul {
@@ -32,22 +32,21 @@ ul {
 }
 
 p {
-    font-family: 'Poppins', 'sans-serif';
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Oswald', sans-serif;
     font-size: 14px;
     line-height: 1.7;
     font-weight: 500;
     color: #989898;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 1px;
 }
 
-p,
-a {
+p a {
     display: inline;
     position: relative;
     color: inherit;
     border-bottom: solid 2px #fde0db;
     transition: all 200ms ease;
-
 }
 
 a,
@@ -55,12 +54,12 @@ a:hover,
 a:active,
 a:link {
     text-decoration: none;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 1px;
 }
 
 p a:active {
-    position: relative;
     color: #ff6347;
+    position: relative;
 }
 
 p a:hover {
@@ -73,8 +72,8 @@ p a:hover::after {
 }
 
 ::selection {
-    background: #fde0db;
     color: #ff6347;
+    background: #fde0db;
 }
 
 p::selection {
@@ -112,8 +111,7 @@ h4,
 h5,
 h6 {
     color: #282828;
-    text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
-
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 1px;
 }
 
 .trans_300 {
@@ -126,22 +124,39 @@ h6 {
     color: #777777;
 }
 
+.clearfix::before,
+.clearfix::after {
+    content: "";
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.super_container {
+    width: 100%;
+    overflow: hidden;
+}
+
 /* 3. Home */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: #ffffff;
+    background: #000000;
     z-index: 10;
 }
 
-/* 3.1  Navegação do Main */
-
+/* 3.1 Navegação Principal */
 .main_nav_container {
     width: 100%;
-    background: #ffffff;
-    box-shadow: 0 0 16px rgba(0, 0, 0, .015);
+    background: #000000;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.015);
 }
 
 .navbar {
@@ -157,8 +172,9 @@ h6 {
 }
 
 .navbar_menu li a {
-    display: block;
-    color: #1e1e27;
+    display: inline-block;
+    position: relative;
+    color: #eceff6;
     font-size: 13px;
     font-weight: 500;
     text-transform: uppercase;
@@ -168,6 +184,24 @@ h6 {
 
 .navbar_menu li a:hover {
     color: #b5aec4;
+}
+
+.navbar_menu a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 15px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fe4c50;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navbar_menu a:hover:after {
+    width: 100%;
+    left: 0;
 }
 
 .navbar_user {
@@ -187,7 +221,7 @@ h6 {
     position: relative;
     width: 40px;
     height: 40px;
-    color: #1e1e27;
+    color: #eceff6;
     transition: color 0.3s ease;
 }
 
@@ -200,7 +234,7 @@ h6 {
 }
 
 .checkout a {
-    background: #eceff6;
+    background: #131009;
     border-radius: 50%;
 }
 
@@ -216,7 +250,6 @@ h6 {
     height: 20px;
     border-radius: 50%;
     background: #fe4c50;
-    font-size: 12px;
     color: #ffffff;
 }
 
@@ -224,22 +257,372 @@ h6 {
 .logo_container {
     position: absolute;
     top: 50%;
-    transform: translateY(25%);
+    transform: translateY(-50%);
     left: 15px;
 }
 
-.logo_container a {
-    font-size: 20px;
-    color: #1e1e27;
-    font-weight: 700;
+/* 3.2 Slider Principal */
+
+.main_slider {
+    width: 100vw;
+    height: 89.9vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-top: 100px;
+}
+
+.main_slider_content {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .main_slider_content h6{
+    font-weight: 500;
     text-transform: uppercase;
+    margin-bottom: 29px;
+    
+} */
+
+.main_slider_content h1 {
+    font-weight: bold;
+    /* line-height: 1; */
+    color: #000000;
+}
+
+.red_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    background: #fe4c50;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.red_button a {
+    display: block;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+}
+
+.red_button:hover {
+    background: #fe7c7f;
+}
+
+.red_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    background: #fe4c50;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.red_button a {
+    display: block;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+}
+
+.red_button:hover {
+    background: #fe7c7f;
+}
+
+.outlined_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.outlined_button a {
+    display: block;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+}
+
+.outlined_button:hover {
+    opacity: 50%;
+}
+
+.shop_now_buttom {
+    width: 140px;
+    margin-top: 32px;
+}
+
+/* 4. Banner */
+
+.banner {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.banner_item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 265px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.banner_category {
+    height: 50px;
+    background: #ffffff;
+    min-width: 180px;
+    padding: 0px 25px;
+}
+
+.banner_category a {
+    display: block;
+    color: #1e1e27;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 50px;
+    width: 100%;
+    transition: color 200ms ease;
+}
+
+.banner_category a:hover {
+    color: #b5aec4;
+}
+
+/* Novos Produtos */
+.new_arrivals {
+    width: 100%;
+}
+
+.new_arrivals_title {
+    margin-top: 74px;
+}
+
+.new_arrivals_sorting {
+    display: inline-block;
+    border-radius: 3px;
+    margin-top: 59px;
+    overflow: visible;
+}
+
+.grid_sorting_button {
+    height: 40px;
+    min-width: 102px;
+    padding: 0px 25px;
+    cursor: pointer;
+    border: solid 1px #ebebeb;
+    font-size: 14px;
+    font-weight: 500;
+    background: #ffffff;
+    text-transform: uppercase;
+    border-radius: 3px;
+    margin: 0;
+    float: left;
+    margin-left: -1px;
+}
+
+.grid_sorting_button:first-child {
+    margin-left: 0px;
+}
+
+.grid_sorting_button.active {
+    color: #ffffff;
+    background: #fe4c50;
+}
+
+.grid_sorting_button.active:hover {
+    background: #fe7c7f;
+    transition: all 0.3s ease;
+}
+
+/* 5.2 Novos Produtos - Grade de Produtos */
+.product-grid {
+    width: 100%;
+}
+
+.product-item {
+    width: 20%;
+    height: 380px;
+    cursor: pointer;
+}
+
+.product-item::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: calc(100% + 1px);
+    height: 100%;
+    pointer-events: none;
+    content: '';
+    border: solid 2px rgba(235, 235, 235, 0);
+    transition: all 0.3s ease;
 }
 
 
+.product-item::after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -1px;
+    width: calc(100% + 1px);
+    height: 100%;
+    pointer-events: none;
+    content: '';
+    border: solid 2px rgba(235, 235, 235, 0);
+    transition: all 0.3s ease;
+}
 
-/* *****************************Responsividade********************************* */
+.product-item:hover::after {
+    box-sizing: 0 25px 29px rgba(63, 78, 100, 0.15);
+    border: solid 2px rgba(235, 235, 235, 1);
+}
 
+.product {
+    width: 100%;
+    height: 340px;
+    border-right: solid 1px #e9e9e9;
+}
 
+.product_image {
+    width: 100%;
+}
+
+.product_image img {
+    width: 100%;
+}
+
+.product-info {
+    text-align: center;
+    pad: 0 10px;
+}
+
+.product_name {
+    margin-top: 27px;
+    color: #1e1e27;
+}
+
+.product_name a {
+    color: #1e1e27;
+    line-height: 20px;
+}
+
+.product_name:hover a {
+    color: #b5aec4;
+}
+
+.discount .product_info .product_price {
+    font-size: 14px;
+}
+
+.product_price {
+    font-size: 16px;
+    color: #fe4c50;
+    font-weight: 600;
+}
+
+.product_price span {
+    font-size: 12px;
+    margin-left: 10px;
+    color: #b5aec4;
+    text-decoration: line-through;
+}
+
+.product_bubble {
+    position: absolute;
+    top: 15px;
+    width: 50px;
+    height: 22px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.product_bubble span {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.product_bubble_right::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 6px;
+    right: auto;
+    top: 16px;
+    bottom: auto;
+    border: 6px solid;
+}
+
+.product_bubble_left::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: 6px;
+    top: 18px;
+    bottom: auto;
+    border: 6px solid;
+}
+
+.product_bubble_red::after {
+    border-color: transparent transparent transparent #fe4c50;
+}
+
+.product_bubble_left::after {
+    border-color: #51a042 #51a042 transparent transparent;
+}
+
+.product_bubble_red {
+    background: #fe4c50;
+}
+
+.product_bubble_green {
+    background: #51a042;
+}
+
+.product_bubble_green {
+    left: 15px;
+}
+
+.product_bubble_right {
+    right: 15px;
+}
+
+/* ***************************Responsivo************************************************ */
 @media only screen and (max-width: 1199px) {}
 
 @media only screen and (max-width: 991px) {}
