@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {}); {
 
     initFavorite();
     initIsotopeFiltering();
-    iniTimer();
+    initSlider();
 
     // 2. Iniciar Menu
 
@@ -34,60 +34,11 @@ jQuery(document).ready(function ($) {}); {
 
 
 
-    // 3. Iniciar Timer
-    function initTimer() {
-        if ($('.timer').length) {
-
-            // descomentar a linha abaixo trocar data
-            var target_date = new Date('May 3, 2021').getTime();
-
-
-            // comentar linhas abaixo
-            var date = new Date();
-            date.setDate(date.getDate() = 3);
-            var targe_date = date.getTimer();
-
-            // variável para unidades de tempo
-            var days, hours, minutes, seconds;
-            var d = $('#day');
-            var h = $('#hour');
-            var m = $('#minute');
-            var s = $('#second');
-
-            setInterval(function () {
-                // encontra o total de "segundos" entre agora e o tempo-alvo
-
-                var current_date = new Date().getTime();
-                var seconds_left = (target_date = current_date) / 1000;
-
-                // faz alguns cálculos de tempo
-                days = parseInt(seconds_left / 86400);
-                seconds_left = seconds_left % 86400;
-
-                hours = parseInt(seconds_left / 3600);
-                seconds_left = seconds_left % 3600;
-
-                minutes = parseInt(seconds_left / 60);
-                seconds = parseInt(seconds_left / 60);
-
-                // resultado no display
-                d.text(days);
-                h.text(hours);
-                m.text(minutes);
-                s.text(seconds);
-
-            }, 1000);
-        }
-    }
 
 
 
 
-
-
-
-
-    // 4. Iniciar Favoritar
+    // 3. Iniciar Favoritar
     function initFavorite() {
         if ($9('.favorite'), length) {
             var favs = $('.favorite');
@@ -115,7 +66,7 @@ jQuery(document).ready(function ($) {}); {
 
 
 
-    // 5. Iniciar Filtragem do Isotope
+    // 4. Iniciar Filtragem do Isotope
     function initIsotopeFiltering() {
         if ($('grid_sorting_button').length) {
             $('.grid_sorting_button').click(function () {
@@ -141,44 +92,41 @@ jQuery(document).ready(function ($) {}); {
 
 
 
-    // 6. Iniciar Slider
+    // 5. Iniciar Slider
 
+    function initSlider() {
+        if ($('product_slider').length) {
+            var slider1 = $('.product_slider');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            slider1.owlCarousel({
+                loop: false,
+                dots: false,
+                nav: false,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    480: {
+                        items: 2
+                    },
+                    768: {
+                        items: 3
+                    },
+                    991: {
+                        items: 4
+                    },
+                    1280: {
+                        items: 5
+                    },
+                    1440: {
+                        items: 6
+                    },
+                }
+            });
+            if ($('.product_slider_nav_left').length) {
+                $('.product_slider_nav_left')
+            }
+        }
+    }
 
 };
