@@ -1,0 +1,627 @@
+@charset "utf-8";
+
+/* 1. Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
+/* 2. Body e Coisas Gerais */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+    background: #ffffff;
+    color: #1e1e27;
+}
+
+div {
+    display: block;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+    margin-bottom: 0px;
+}
+
+p {
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    font-weight: 500;
+    color: #989898;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 1px;
+}
+
+p a {
+    display: inline;
+    position: relative;
+    color: inherit;
+    border-bottom: solid 2px #fde0db;
+    transition: all 200ms ease;
+}
+
+a,
+a:hover,
+a:active,
+a:link {
+    text-decoration: none;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 1px;
+}
+
+p a:active {
+    color: #ff6347;
+    position: relative;
+}
+
+p a:hover {
+    color: #ff6347;
+    background: #fde0db;
+}
+
+p a:hover::after {
+    opacity: 0.2;
+}
+
+::selection {
+    color: #ff6347;
+    background: #fde0db;
+}
+
+p::selection {
+    background: #fde0db;
+}
+
+h1 {
+    font-size: 72px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 16px;
+}
+
+h6 {
+    font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #282828;
+    text-shadow: rgba(0, 0, 0, 0.1) 0 0 1px;
+}
+
+.trans_300 {
+    transition: all 300ms ease;
+}
+
+::input-placeholder {
+    font-size: 16px !important;
+    font-weight: 500;
+    color: #777777;
+}
+
+.clearfix::before,
+.clearfix::after {
+    content: "";
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.super_container {
+    width: 100%;
+    overflow: hidden;
+}
+
+/* 3. Home */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #000000;
+    z-index: 10;
+}
+
+/* 3.1 Navegação Principal */
+.main_nav_container {
+    width: 100%;
+    background: #000000;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.015);
+}
+
+.navbar {
+    width: auto;
+    height: 100px;
+    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.navbar_menu li {
+    display: inline-block;
+}
+
+.navbar_menu li a {
+    display: inline-block;
+    position: relative;
+    color: #eceff6;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 20px;
+    transition: color 0.3s ease;
+}
+
+.navbar_menu li a:hover {
+    color: #b5aec4;
+}
+
+.navbar_menu a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 15px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fe4c50;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navbar_menu a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.navbar_user {
+    margin-left: 37px;
+}
+
+.navbar_user li {
+    display: inline-block;
+    text-align: center;
+}
+
+.navbar_user li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    color: #eceff6;
+    transition: color 0.3s ease;
+}
+
+.navbar_user li a:hover {
+    color: #b5aec4;
+}
+
+.checkout {
+    color: #b5aec4;
+}
+
+.checkout a {
+    background: #131009;
+    border-radius: 50%;
+}
+
+.checkout_items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -9px;
+    left: 22px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fe4c50;
+    color: #ffffff;
+}
+
+/* 3.2. Hamburguer */
+.hamburguer_container {
+    margin-left: 40px;
+}
+
+.hamburguer_container i {
+    font-size: 24px;
+    color: #eceff6;
+    transition: all 300ms ease;
+    cursor: pointer;
+}
+
+.hamburguer_container:hover i {
+    color: #b5aec4;
+}
+
+.hamburguer_menu {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 10;
+    transition: all 300ms ease;
+}
+
+/* 4 Logo */
+.logo_container {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+}
+
+/* 5 Slider Principal */
+
+.main_slider {
+    width: 100vw;
+    height: 89.9vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin-top: 100px;
+}
+
+.main_slider_content {
+    width: 40%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* .main_slider_content h6{
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 29px;
+    
+} */
+
+.main_slider_content h1 {
+    font-weight: bold;
+    /* line-height: 1; */
+    color: #000000;
+}
+
+.red_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    background: #fe4c50;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.red_button a {
+    display: block;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+}
+
+.red_button:hover {
+    background: #fe7c7f;
+}
+
+.red_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 40px;
+    background: #fe4c50;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.red_button a {
+    display: block;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+}
+
+.red_button:hover {
+    background: #fe7c7f;
+}
+
+.outlined_button {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    background: transparent;
+    border: 2px solid #000000;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.outlined_button a {
+    display: block;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+}
+
+.outlined_button:hover {
+    opacity: 50%;
+}
+
+.shop_now_buttom {
+    width: 140px;
+    margin-top: 32px;
+}
+
+/* 6. Benefícios */
+.benefit {
+    margin-top: 74px;
+}
+
+.benefit_row {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.benefit_col {
+    padding-left: 0px;
+    padding-right: 0px
+}
+
+.benefit_item {
+    height: 100px;
+    background: #f3f3f3;
+    border-right: solid 1px #ffffff;
+    padding-left: 25px;
+}
+
+.benefit_col:last-child .benefit_item {
+    border-right: none;
+}
+
+.benefit_icon {
+    font-size: 30px;
+    color: #fe4c50;
+}
+
+.benefit_content {
+    padding-left: 22px;
+}
+
+.benefit_content h6 {
+    text-transform: uppercase;
+    line-height: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.benefit_content p {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 0px;
+    color: #51545f;
+}
+
+
+/* 7. Detalhes do Produto */
+
+.single-product {
+    margin-top: 80px;
+}
+
+.single-product .col {
+    padding: 20px;
+}
+
+.single-product .col-2 {
+    padding: 20px;
+}
+
+.single-product .col-2 img {
+    padding: 0;
+}
+
+.single-product h4 {
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: bold; 
+}
+
+.single-product select{
+    display: block;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.single-product input{
+    width: 50px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 1px solid #ff523b;
+    border-radius: 5px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.single-product .fa{
+    color: #ff523b;
+    margin-left: 10px;
+}
+
+.small-img-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.small-img-col{
+    flex-basis: 24%;
+    cursor: pointer;
+}
+
+
+/* 8. Footer */
+.footer {
+    background: #000000;
+    padding-top: 70px;
+    margin-top: 81px;
+}
+
+.footer-about {
+    margin-bottom: 30px;
+}
+
+.footer-about .footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-about p {
+    color: #b7b7b7;
+    margin-bottom: 30px;
+}
+
+.footer-widget {
+    margin-bottom: 30px;
+}
+
+.footer-widget h6 {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer-widget ul li {
+    line-height: 36px;
+    list-style: none;
+}
+
+.footer-widget ul li a {
+    color: #b7b7b7;
+    font-size: 15px;
+}
+
+.footer-widget ul li a:hover {
+    color: #e53637;
+}
+
+.footer-widget .footer-newslatter p {
+    color: #b7b7b7;
+}
+
+.footer-widget .footer-newslatter form {
+    position: relative;
+}
+
+.footer-widget .footer-newslatter form input {
+    width: 100%;
+    font-size: 15px;
+    color: #ffffff;
+    background: transparent;
+    border: none;
+    padding: 15px 0;
+    border-bottom: 2px solid #ffffff;
+}
+
+.footer-widget .footer-newslatter form input::placeholder {
+    color: #b7b7b7;
+}
+
+.footer-widget .footer-newslatter form button {
+    color: #b7b7b7;
+    font-size: 16px;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    height: 100%;
+    background: transparent;
+    border: none;
+}
+
+.footer-copyright-text {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.footer-copyright-text p {
+    color: #b7b7b7;
+    margin-bottom: 0;
+}
+
+.footer-copyright-text p i {
+    color: #e53637;
+}
+
+.footer-copyright-text p a {
+    color: #e53637;
+}
+
+/* ***************************Responsivo************************************************ */
+@media only screen and (max-width: 1199px) {}
+
+@media only screen and (max-width: 991px) {}
+
+@media only screen and (max-width: 767px) {}
+
+@media only screen and (max-width: 575px) {}
+
+@media only screen and (max-width: 479px) {}
